@@ -16,17 +16,18 @@ const Home = () => {
 							console.log(e.key)
 							if (e.key === "Enter") {
 								console.log("Enter was pressed");
-								setTodos(todos.concat(inputValue));
+		//							setTodos(todos.concat(inputValue));
+								setTodos ([...todos,inputValue])
 								setInputValue("");
 
 							}
 						}}
 						placeholder="What do you need to do?"></input>
 				</li>
-				{todos.map((item, index) => (
-					<li>
-						{todos}{inputValue}
-						<i class="fa-solid fa-trash-can" onClick={() => setTodos(todos.filter((t, currentIndex) =>index != currentIndex))}></i>
+				{todos.map ((item, index) => (
+					<li className= "d-flex justify-content-between">
+						{item}
+						<i class="fas fa-trash-alt" onClick={() => setTodos(todos.filter((t, currentIndex) => index != currentIndex))}></i>
 					</li>
 
 				))}
